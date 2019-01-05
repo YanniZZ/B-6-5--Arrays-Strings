@@ -15,15 +15,15 @@ namespace Base.Lesson_6
             //int[] six = new[] { 1,2,3,4,5,6};
             //for (int i = six.Length-1; i >= 0; i--) { Console.Write(six[i]); }
             //Console.WriteLine(string.Join(", ", six));
-            Random rnd = new Random();
-            int[,] six2 = new int[3, 4];
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    six2[i, j] = rnd.Next(100);
-                }
-            }
+            //Random rnd = new Random();
+            //int[,] six2 = new int[3, 4];
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    for (int j = 0; j < 4; j++)
+            //    {
+            //        six2[i, j] = rnd.Next(100);
+            //    }
+            //}
             //for (int i = 0; i < six2.Rank; i++)
             //{
             //    Console.WriteLine(i);
@@ -34,8 +34,9 @@ namespace Base.Lesson_6
             //        Console.WriteLine($"{six2[i,j], 5}");
             //    }
             //}
-            outmass(six2);
+            //outmass(six2);
             //poemGeneration();
+            Pyatnashki();
             Console.ReadLine();
         }
 
@@ -86,9 +87,88 @@ namespace Base.Lesson_6
         }
         public static void Pyatnashki()
         {
+            //int[,] arr = new int [3, 3] {{1, 2, 3}, { 4, 5, 6 }, { 7, 8, 0}};
             var numbers = GetInitialValues();
             PrintValues(numbers);
             Play(numbers);
+            Console.Write("Введите направление движения нуля(WASP): ");
+            //Console.WriteLine("Исходная матрица: ");
+            //for (int i = 0; i < 3; i++)
+            //    {
+            //        for (int j = 0; j < 3; j++)
+            //        {
+            //            Console.Write("{0,3}", arr[i, j]);
+            //        }
+            //        Console.WriteLine();
+            //    }
+
+
+            //ConsoleKey direction = Console.ReadKey().Key;
+            //Console.WriteLine();
+            //do
+            //{
+            //    if (direction == ConsoleKey.W)
+            //    {
+            //        var temp = arr[2, 2];
+            //        arr[2, 2] = arr[1, 2];
+            //        arr[1, 2] = temp;
+            //        for (int i = 0; i < 3; i++)
+            //        {
+            //            for (int j = 0; j < 3; j++)
+            //            {
+            //                Console.Write("{0,3}", arr[i, j]);
+            //            }
+
+            //            Console.WriteLine();
+            //        }
+            //    }
+            //    if(direction == ConsoleKey.A)
+            //    {
+            //        var temp = arr[2, 2];
+            //        arr[2, 2] = arr[1, 2];
+            //        arr[1, 2] = temp;
+            //        for (int i = 0; i < 3; i++)
+            //        {
+            //            for (int j = 0; j < 3; j++)
+            //            {
+            //                Console.Write("{0,3}", arr[i, j]);
+            //            }
+
+            //            Console.WriteLine();
+            //        }
+            //    }
+            //    if (direction == ConsoleKey.S)
+            //    {
+            //        var temp = arr[2, 2];
+            //        arr[2, 2] = arr[1, 2];
+            //        arr[1, 2] = temp;
+            //        for (int i = 0; i < 3; i++)
+            //        {
+            //            for (int j = 0; j < 3; j++)
+            //            {
+            //                Console.Write("{0,3}", arr[i, j]);
+            //            }
+
+            //            Console.WriteLine();
+            //        }
+            //    }
+            //    if (direction == ConsoleKey.D)
+            //    {
+            //        var temp = arr[2, 2];
+            //        arr[2, 2] = arr[1, 2];
+            //        arr[1, 2] = temp;
+            //        for (int i = 0; i < 3; i++)
+            //        {
+            //            for (int j = 0; j < 3; j++)
+            //            {
+            //                Console.Write("{0,3}", arr[i, j]);
+            //            }
+
+            //            Console.WriteLine();
+            //        }
+            //    }
+            //} while (direction == ConsoleKey.E);
+
 
         }
 
@@ -118,18 +198,18 @@ namespace Base.Lesson_6
 
         private static int[,] GetInitialValues()
         {
-            int[,] arr = new int[4, 4];
+            int[,] arr = new int[3, 3];
             int number = 1;
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     arr[i, j] = number++;
                 }
             }
 
-            arr[3, 3] = 0;
+            arr[2, 2] = 0;
 
             return arr;
         }
@@ -137,12 +217,12 @@ namespace Base.Lesson_6
         private static void PrintValues(int[,] arr)
         {
             Console.Clear();
-
-            for (int i = 0; i < 4; i++)
+            Console.WriteLine("Для перемещения нуля используйте клавиши WASD");
+            for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 3; j++)
                 {
-                    Console.Write(String.Format("{0,4}", arr[i, j]));
+                    Console.Write(String.Format("{0,3}", arr[i, j]));
                 }
 
                 Console.WriteLine();
@@ -151,8 +231,8 @@ namespace Base.Lesson_6
 
         private static void Play(int[,] arr)
         {
-            var zeroI = 3;
-            var zeroJ = 3;
+            var zeroI = 2;
+            var zeroJ = 2;
             
             while (true)
             {
